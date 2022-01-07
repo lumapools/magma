@@ -2,18 +2,23 @@
 
 ##
 # Pre-requirements:
-# + $1: path to captainrc (default: ./captainrc)
-# + env EXTRACT: path to extraction script (default: captain/extract.sh)
+# + $1: path to dispatcherconfig (default: ./dispatcher/dispatcherconfig)
+# + env EXTRACT: path to extraction script (default: ./worker/extract.sh)
 ##
 
 cleanup() {
     rm -rf "$TMPDIR"
 }
 
+if [ -z $PYTHON_RUN ]; then
+    echo "Run run_post_extract.py with optional arguments --jobsconfig, --dispatcherconfig, --extract."
+    exit 0
+fi
+
 trap cleanup EXIT
 
 if [ -z $1 ]; then
-    set -- "./captainrc"
+    set -- "./dispatcher/dispatcherconfig"
 fi
 
 # load the configuration file (captainrc)
@@ -30,7 +35,7 @@ MAGMA=${MAGMA:-"$(cd "$(dirname "${BASH_SOURCE[0]}")/../../" >/dev/null 2>&1 \
 export MAGMA
 source "$MAGMA/tools/captain/common.sh"
 
-EXTRACT=${EXTRACT:-"$MAGMA"/tools/captain/extract.sh}
+EXTRACT=${EXTRACT:-"$MAGMA"/tools/captain/worker/extract.sh}
 
 WORKDIR="$(realpath "$WORKDIR")"
 export ARDIR="$WORKDIR/ar"
@@ -43,6 +48,7 @@ mkdir -p "$CACHEDIR"
 mkdir -p "$LOGDIR"
 mkdir -p "$POCDIR"
 mkdir -p "$TMPDIR"
+exit 0
 
 if [ -z "$ARDIR" ] || [ ! -d "$ARDIR" ]; then
     echo "Invalid archive directory!"

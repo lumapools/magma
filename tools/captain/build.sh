@@ -9,6 +9,7 @@
 #       unset)
 # + env HARDEN: if set, build the benchmark with hardened canaries (default:
 #       unset)
+# + env CANARY_MODE: defines the mode of canaries at compile time (default: 1)
 ##
 
 if [ -z $FUZZER ] || [ -z $TARGET ]; then

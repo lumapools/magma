@@ -1,0 +1,98 @@
+{
+        # Path to MAGMA
+        # (required)
+        MAGMA: "/home/benhauer/magma"
+
+        # CPU granularity: logical, physical or socket
+        # (required)
+        WORKER_MODE: "logical"
+
+        # Number of logical CPUs to use
+        # (optional, default: all of them)
+        # WORKERS: 4
+
+        # list of logical cores to allocate, forces logical configuration
+        # (optional, default: all of them)
+        # WORKER_POOL: [1,3,5,7]
+
+        # number of workers to allocate for a campaign
+        # (optional, default: 1)
+        CAMPAIGN_WORKERS: 1
+
+        # number of campaigns to run per program (per fuzzer)
+        # (required)
+        REPEAT: 1
+
+        # time to run each campaign. This variable supports one-letter
+        # suffixes to indicate duration (s: seconds, m: minutes, h: hours, d: days)
+        # (optional, default: "1m")
+        TIMEOUT: "1m"
+        
+        # time (in seconds) between polls
+        # (optional, default: 5)
+        POLL: 5
+        
+        # if set, the cache workdir is mounted on disk instead of in-memory
+        # (optional, default: unset)
+        # CACHE_ON_DISK: 1
+
+        # if set, campaign workdirs will not be tarballed
+        # (optional, default: unset)
+        NO_ARCHIVE: 1
+        
+        # the size of the tmpfs mounted volume. This only applies when
+        # cache_on_disk is not set
+        # (optional, default: "50g")
+        # TMPFS_SIZE: "50g"
+        
+        # defines the mode of canaries at compile time
+        # 1: without fixes, with canaries
+        # 2: without fixes, without canaries
+        # 3: with fixes, without canaries
+        # (optional, default: 1)
+        # CANARY_MODE: 1
+        
+        # if set, build the benchmark with ISAN/fatal canaries
+        # (optional, default: unset)
+        # ISAN: 0
+
+        # if set, build the benchmark with hardened canaries
+        # (optional, default: unset)
+        # HARDEN: 0
+        
+        # if set, run the extract.sh script after the campaign is done
+        # (optional, default: unset)
+        # POC_EXTRACT: 0
+
+        # an array of fuzzer names (from magma/fuzzers/*) to evaluate
+        # (optional, default: all fuzzers)
+        FUZZERS: ["afl", "honggfuzz"]
+	
+        # an array of target names (from magma/targets/*)
+        # (optional, default: all targets)
+        TARGETS: ["libpng"]
+
+        # an array of targets per fuzzer (ignore the "targets" attribute for that particular fuzzer)
+        # (optional, default: none)
+        # OVERRIDDEN_TARGETS: {
+        #     "honggfuzz": ["libtiff", "poppler"]
+        # }
+
+        # an array of programs per (fuzzer,target) entry (from magma/targets/target/configrc.hjson)
+        # (optional, default: all programs)
+        # PROGRAMS: {
+        #     "honggfuzz,libtiff": ["tiffcp"]
+        # }
+        
+        # fuzzer/target-specific arguments when fuzzing `target` with `fuzzer`
+        # (optional, default: none)
+        # FUZZARGS: {
+        #     "afl,libpng": "-x /magma_shared/png.dict"
+        # }
+        #
+        
+        # overrides the global CAMPAIGN_WORKERS setting
+        # FUZZER_CAMPAIGN_WORKERS: {
+        #     "afl,libpng": 3
+        # }
+}

@@ -1,0 +1,3 @@
+{
+    "programs": ["libpng_read_fuzzer"]
+}

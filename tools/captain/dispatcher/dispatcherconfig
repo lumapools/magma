@@ -1,0 +1,29 @@
+# Path to magma (default: ../../../)
+# (optional)
+# MAGMA="path/to/magma"
+
+# Temporary results will be stored there (deleted when all jobs finish)
+# (required)
+TEMP_RESULTS="/path/to/temp_results"
+
+# Path to workdir on dispatcher computer (final results will be stored here)
+# (required)
+WORKDIR="/path/to/workdir/"
+
+# Type of copying used to fetch from remote matchines ("scp" or "rsync")
+# (required)
+COPY_TYPE="rsync"
+
+# Jobs configuration file
+# (required)
+JOBS_CONFIG="/path/to/config.hjson"
+
+
+##### Set the parameters below in case of using quickRun.sh #####
+# Workdir per thread will be stored there
+# (required)
+WORKDIRS="/path/to/workdirs"
+
+# If set to 1, workdirs per thread will be kept as well as the final merged result 
+# (optional)
+# KEEP_WORKDIRS=0

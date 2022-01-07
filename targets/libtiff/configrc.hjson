@@ -1,0 +1,6 @@
+{
+    "programs": ["tiff_read_rgba_fuzzer", "tiffcp"],
+    "args": {
+        "tiffcp": "-M @@ tmp.out"
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "programs": ["pdf_fuzzer", "pdfimages", "pdftoppm"],
+    "args": {
+        "pdfimages": "@@ /tmp/out",
+	"pdftoppm": "-mono -cropbox @@"
+    }
+}

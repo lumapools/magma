@@ -1,0 +1,6 @@
+{
+    "programs": ["sndfile_fuzzer"],
+    "args": {
+        "sndfile_fuzzer": "@@"
+    }
+}

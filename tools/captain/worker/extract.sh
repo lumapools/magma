@@ -4,7 +4,7 @@
 # Pre-requirements:
 # - env FUZZER: fuzzer name (from fuzzers/)
 # - env TARGET: target name (from targets/)
-# - env PROGRAM: program name (name of binary artifact from $TARGET/build.sh)
+# - env PROGRAM: program name (name of binary artifact from $TARGET/configrc.hjson)
 # - env ARGS: program launch arguments
 # - env SHARED: path to host-local volume where fuzzer findings are saved
 # - env POCDIR: path to the directory where faulty test cases will be saved

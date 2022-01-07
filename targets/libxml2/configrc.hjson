@@ -1,0 +1,6 @@
+{
+    "programs": ["libxml2_xml_read_memory_fuzzer", "xmllint"],
+    "args": {
+        "xmllint": "--valid --oldxml10 --push --memory @@"
+    }
+}

@@ -1,0 +1,20 @@
+
+# Path to magma (default: ../../../)
+# (optional)
+# MAGMA="/path/to/magma"
+
+# Workdir per thread will be stored there
+# (required)
+WORKDIRS="/path/to/workdirs"
+
+# If set to 1, workdirs per thread will be kept as well as the final merged result 
+# (optional)
+# KEEP_WORKDIRS=0
+
+# Dispatcher's IP address
+# (required)
+DISPATCHER_IP=localhost
+
+# This worker computer's IP address (findable by dispatcher computer)
+# (required)
+WORKER_IP=localhost
